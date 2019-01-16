@@ -11,3 +11,13 @@ export const getGroupsListLoadingStatus = createSelector(
   getGroups,
   ({ loadingStatus }) => loadingStatus,
 )
+
+export const getCurrentGroupData = createSelector(
+  getGroups,
+  ({ currentGroup: { data } }) => data,
+)
+
+export const getCurrentGroupLoadingStatus = createSelector(
+  getGroups,
+  ({ currentGroup: { loadingStatus } }) => loadingStatus,
+)

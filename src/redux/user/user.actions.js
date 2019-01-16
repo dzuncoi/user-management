@@ -20,4 +20,59 @@ export const getUsersList = () => async (dispatch) => {
   }
 }
 
-export default getUsersList
+export const getUser = userId => async (dispatch) => {
+  dispatch({
+    type: types.GET_USER_REQUEST,
+  })
+
+  try {
+    const data = await UserAPI.getUser(userId)
+    dispatch({
+      type: types.GET_USER_SUCCESS,
+      data,
+    })
+  } catch (error) {
+    dispatch({
+      type: types.GET_USER_FAILURE,
+      error,
+    })
+  }
+}
+
+export const createUser = body => async (dispatch) => {
+  dispatch({
+    type: types.MODIFY_USER_REQUEST,
+  })
+
+  try {
+    const data = await UserAPI.createUser(body)
+    dispatch({
+      type: types.MODIFY_USER_SUCCESS,
+      data,
+    })
+  } catch (error) {
+    dispatch({
+      type: types.MODIFY_USER_FAILURE,
+      error,
+    })
+  }
+}
+
+export const editUser = (id, body) => async (dispatch) => {
+  dispatch({
+    type: types.MODIFY_USER_REQUEST,
+  })
+
+  try {
+    const data = await UserAPI.editUser(id, body)
+    dispatch({
+      type: types.MODIFY_USER_SUCCESS,
+      data,
+    })
+  } catch (error) {
+    dispatch({
+      type: types.MODIFY_USER_FAILURE,
+      error,
+    })
+  }
+}

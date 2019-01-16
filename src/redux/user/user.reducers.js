@@ -38,6 +38,33 @@ export default function userReducers(state = initialState, action) {
       error: action.error,
     }
 
+    case types.GET_USER_REQUEST: return {
+      ...state,
+      currentUser: {
+        ...state.currentUser,
+        loadingStatus: LOADING,
+      },
+    }
+
+    case types.GET_USER_SUCCESS: return {
+      ...state,
+      currentUser: {
+        ...state.currentUser,
+        loadingStatus: SUCCEEDED,
+        data: action.data,
+        error: undefined,
+      },
+    }
+
+    case types.GET_USER_FAILURE: return {
+      ...state,
+      currentUser: {
+        ...state.currentUser,
+        loadingStatus: FAILED,
+        error: action.error,
+      },
+    }
+
     default: return state
   }
 }
