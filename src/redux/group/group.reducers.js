@@ -11,7 +11,7 @@ export const initialState = {
   data: [],
   loadingStatus: NOT_LOADED,
   error: undefined,
-  currentUser: {
+  currentGroup: {
     data: undefined,
     loadingStatus: NOT_LOADED,
     error: undefined,
@@ -40,16 +40,16 @@ export default function userReducers(state = initialState, action) {
 
     case types.GET_GROUP_REQUEST: return {
       ...state,
-      currentUser: {
-        ...state.currentUser,
+      currentGroup: {
+        ...state.currentGroup,
         loadingStatus: LOADING,
       },
     }
 
     case types.GET_GROUP_SUCCESS: return {
       ...state,
-      currentUser: {
-        ...state.currentUser,
+      currentGroup: {
+        ...state.currentGroup,
         loadingStatus: SUCCEEDED,
         data: action.data,
         error: undefined,
@@ -58,8 +58,8 @@ export default function userReducers(state = initialState, action) {
 
     case types.GET_GROUP_FAILURE: return {
       ...state,
-      currentUser: {
-        ...state.currentUser,
+      currentGroup: {
+        ...state.currentGroup,
         loadingStatus: FAILED,
         error: action.error,
       },
