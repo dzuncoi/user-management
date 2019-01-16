@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`users-list renders 1`] = `
+<Panel
+  extra={
+    <Link
+      to="user/new"
+    >
+      <Button
+        type="primary"
+      >
+        New User
+      </Button>
+    </Link>
+  }
+  title="Users"
+>
+  <Table
+    columns={
+      Array [
+        Object {
+          "key": "fullName",
+          "render": [Function],
+          "title": "Full Name",
+        },
+        Object {
+          "dataIndex": "email",
+          "key": "email",
+          "title": "Email",
+        },
+        Object {
+          "key": "groups",
+          "render": [Function],
+          "title": "Groups",
+        },
+        Object {
+          "fixed": "right",
+          "key": "actions",
+          "render": [Function],
+          "title": "Actions",
+          "width": 100,
+        },
+      ]
+    }
+    dataSource={
+      Array [
+        Object {
+          "id": "1",
+          "name": "data-1",
+        },
+        Object {
+          "id": "2",
+          "name": "data-2",
+        },
+      ]
+    }
+    loading={false}
+    name="users"
+    rowKey="id"
+    scroll={
+      Object {
+        "x": true,
+      }
+    }
+  />
+</Panel>
+`;

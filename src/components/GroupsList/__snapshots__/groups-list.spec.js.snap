@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`groups-list renders 1`] = `
+<Panel
+  extra={
+    <Link
+      to="group/new"
+    >
+      <Button
+        type="primary"
+      >
+        New Group
+      </Button>
+    </Link>
+  }
+  title="Groups"
+>
+  <Table
+    columns={
+      Array [
+        Object {
+          "dataIndex": "name",
+          "key": "name",
+          "render": [Function],
+          "title": "Name",
+        },
+        Object {
+          "key": "users",
+          "render": [Function],
+          "title": "Users",
+        },
+        Object {
+          "fixed": "right",
+          "key": "actions",
+          "render": [Function],
+          "title": "Actions",
+          "width": 100,
+        },
+      ]
+    }
+    dataSource={
+      Array [
+        Object {
+          "id": "1",
+          "name": "group 1",
+        },
+      ]
+    }
+    loading={false}
+    name="groups"
+    rowKey="id"
+    scroll={
+      Object {
+        "x": true,
+      }
+    }
+  />
+</Panel>
+`;

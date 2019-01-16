@@ -73,6 +73,9 @@
       "react-app-polyfill/jsdom",
       "./config/jest/setup.js"
     ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
@@ -136,6 +139,9 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-app": "^7.0.0",
     "babel-preset-stage-2": "^6.24.1",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "5.6.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-react-app": "^3.0.6",
