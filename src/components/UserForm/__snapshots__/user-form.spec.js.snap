@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user-form renders 1`] = `
+<div
+  className="container"
+>
+  <Form>
+    <Row
+      className="formRow"
+      gutter={16}
+      type="flex"
+    >
+      <Col
+        md={
+          Object {
+            "span": 12,
+          }
+        }
+        span={24}
+      >
+        <Field
+          component="TextInput"
+          id="firstName"
+          name="firstName"
+          placeholder="First Name"
+          type="name"
+          validate={[Function]}
+        />
+      </Col>
+      <Col
+        md={
+          Object {
+            "span": 12,
+          }
+        }
+        span={24}
+      >
+        <Field
+          component="TextInput"
+          id="lastName"
+          name="lastName"
+          placeholder="Last Name"
+          type="name"
+          validate={[Function]}
+        />
+      </Col>
+    </Row>
+    <Row
+      className="formRow"
+      gutter={16}
+      type="flex"
+    >
+      <Col
+        md={
+          Object {
+            "span": 12,
+          }
+        }
+        span={24}
+      >
+        <Field
+          component="TextInput"
+          id="email"
+          name="email"
+          placeholder="Email"
+          type="email"
+          validate={[Function]}
+        />
+      </Col>
+      <Col
+        md={
+          Object {
+            "span": 12,
+          }
+        }
+        span={24}
+      >
+        <Field
+          component={
+            Object {
+              "Option": [Function],
+              "default": [Function],
+            }
+          }
+          id="groups"
+          mode="multiple"
+          name="groups"
+          optionFilterProp="children"
+          placeholder="Select group(s)"
+          type="text"
+        >
+          <Option
+            key="1"
+            value="1"
+          >
+            group 1
+          </Option>
+        </Field>
+      </Col>
+    </Row>
+  </Form>
+</div>
+`;

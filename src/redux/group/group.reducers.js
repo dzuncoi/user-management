@@ -20,25 +20,25 @@ export const initialState = {
 
 export default function userReducers(state = initialState, action) {
   switch (action.type) {
-    case types.GET_USERS_REQUEST: return {
+    case types.GET_GROUPS_REQUEST: return {
       ...state,
       loadingStatus: LOADING,
     }
 
-    case types.GET_USERS_SUCCESS: return {
+    case types.GET_GROUPS_SUCCESS: return {
       ...state,
       loadingStatus: SUCCEEDED,
       data: action.data,
       error: undefined,
     }
 
-    case types.GET_USERS_FAILURE: return {
+    case types.GET_GROUPS_FAILURE: return {
       ...state,
       loadingStatus: FAILED,
       error: action.error,
     }
 
-    case types.GET_USER_REQUEST: return {
+    case types.GET_GROUP_REQUEST: return {
       ...state,
       currentUser: {
         ...state.currentUser,
@@ -46,7 +46,7 @@ export default function userReducers(state = initialState, action) {
       },
     }
 
-    case types.GET_USER_SUCCESS: return {
+    case types.GET_GROUP_SUCCESS: return {
       ...state,
       currentUser: {
         ...state.currentUser,
@@ -56,7 +56,7 @@ export default function userReducers(state = initialState, action) {
       },
     }
 
-    case types.GET_USER_FAILURE: return {
+    case types.GET_GROUP_FAILURE: return {
       ...state,
       currentUser: {
         ...state.currentUser,
