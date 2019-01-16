@@ -1,5 +1,6 @@
 import * as types from '../types'
 import UserAPI from '../../apis/user/user'
+import { getGroupsList } from '../group/group.actions'
 
 export const getUsersList = () => async (dispatch) => {
   dispatch({
@@ -69,6 +70,27 @@ export const editUser = (id, body) => async (dispatch) => {
       type: types.MODIFY_USER_SUCCESS,
       data,
     })
+  } catch (error) {
+    dispatch({
+      type: types.MODIFY_USER_FAILURE,
+      error,
+    })
+  }
+}
+
+export const deleteUser = id => async (dispatch) => {
+  dispatch({
+    type: types.MODIFY_USER_REQUEST,
+  })
+
+  try {
+    const data = await UserAPI.deleteUser(id)
+    dispatch({
+      type: types.MODIFY_USER_SUCCESS,
+      data,
+    })
+    dispatch(getUsersList())
+    dispatch(getGroupsList())
   } catch (error) {
     dispatch({
       type: types.MODIFY_USER_FAILURE,

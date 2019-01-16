@@ -1,5 +1,6 @@
 import * as types from '../types'
 import GroupAPI from '../../apis/group/group'
+import { getUsersList } from '../user/user.actions'
 
 export const getGroupsList = () => async (dispatch) => {
   dispatch({
@@ -69,6 +70,27 @@ export const editGroup = (id, body) => async (dispatch) => {
       type: types.MODIFY_GROUP_SUCCESS,
       data,
     })
+  } catch (error) {
+    dispatch({
+      type: types.MODIFY_GROUP_FAILURE,
+      error,
+    })
+  }
+}
+
+export const deleteGroup = id => async (dispatch) => {
+  dispatch({
+    type: types.MODIFY_GROUP_REQUEST,
+  })
+
+  try {
+    const data = await GroupAPI.deleteGroup(id)
+    dispatch({
+      type: types.MODIFY_GROUP_SUCCESS,
+      data,
+    })
+    dispatch(getGroupsList())
+    dispatch(getUsersList())
   } catch (error) {
     dispatch({
       type: types.MODIFY_GROUP_FAILURE,

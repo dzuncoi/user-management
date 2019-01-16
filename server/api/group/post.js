@@ -8,6 +8,6 @@ export default server => server.post('/group', (req, res) => {
     users: req.body.users || [],
     id: uuid(),
   }
-  groups.push(newGroup)
+  groups.data.push(newGroup)
   return res.status(201).jsonp(newGroup)
 })

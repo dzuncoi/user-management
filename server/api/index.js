@@ -6,12 +6,14 @@ import {
 } from './user/get'
 import patchUser from './user/patch'
 import postUser from './user/post'
+import deleteUser from './user/delete'
 import {
   single as getGroup,
   multiple as getGroups,
 } from './group/get'
 import patchGroup from './group/patch'
 import postGroup from './group/post'
+import deleteGroup from './group/delete'
 
 require('dotenv').config()
 
@@ -28,10 +30,12 @@ export default pipe(
   getUsers,
   patchUser,
   postUser,
+  deleteUser,
   getGroup,
   getGroups,
   patchGroup,
   postGroup,
+  deleteGroup,
 )(server)
 
 const API_PORT = process.env.REACT_APP_API_URL || 3001

@@ -26,6 +26,7 @@ describe('users-list', () => {
         id: '2',
         name: 'data-2',
       }],
+      deleteUser: jest.fn(),
     }
   })
 

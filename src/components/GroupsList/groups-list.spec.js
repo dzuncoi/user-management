@@ -26,6 +26,7 @@ describe('groups-list', () => {
         id: '1',
         name: 'group 1',
       }],
+      deleteGroup: jest.fn(),
     }
   })
 

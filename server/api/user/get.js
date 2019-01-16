@@ -4,11 +4,11 @@ import findById from '../../helpers/findById'
 
 const populateGroup = user => ({
   ...user,
-  groups: user.groups.map(gr => findById(groups)(gr)),
+  groups: user.groups.map(gr => findById(groups.data)(gr)),
 })
 
 export const single = server => server.get('/user/:id', (req, res) => {
-  const user = findById(users)(req.params.id)
+  const user = findById(users.data)(req.params.id)
   if (!user) {
     return res.status(404).jsonp({
       code: 'USER_NOT_FOUND',
@@ -21,5 +21,5 @@ export const single = server => server.get('/user/:id', (req, res) => {
 })
 
 export const multiple = server => server.get('/users', (req, res) => (
-  res.jsonp(users.map(populateGroup))
+  res.jsonp(users.data.map(populateGroup))
 ))

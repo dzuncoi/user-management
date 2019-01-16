@@ -4,13 +4,13 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Row, Col } from 'antd'
 
-import { getUsersList } from '../../redux/user/user.actions'
+import { getUsersList, deleteUser } from '../../redux/user/user.actions'
 import {
   getUsersList as getUsersListSelector,
   getUsersListLoadingStatus,
 } from '../../redux/user/user.selectors'
 
-import { getGroupsList } from '../../redux/group/group.actions'
+import { getGroupsList, deleteGroup } from '../../redux/group/group.actions'
 import {
   getGroupsList as getGroupsListSelector,
   getGroupsListLoadingStatus,
@@ -32,12 +32,14 @@ class HomeComp extends React.Component {
           <UsersList
             data={this.props.users}
             loadingStatus={this.props.usersLoadingStatus}
+            deleteUser={this.props.actions.deleteUser}
           />
         </Col>
         <Col span={24} lg={{ span: 10 }}>
           <GroupsList
             data={this.props.groups}
             loadingStatus={this.props.groupsLoadingStatus}
+            deleteGroup={this.props.actions.deleteGroup}
           />
         </Col>
       </Row>
@@ -49,6 +51,8 @@ HomeComp.propTypes = {
   actions: PropTypes.shape({
     getUsersList: PropTypes.func.isRequired,
     getGroupsList: PropTypes.func.isRequired,
+    deleteUser: PropTypes.func.isRequired,
+    deleteGroup: PropTypes.func.isRequired,
   }).isRequired,
   users: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
@@ -78,6 +82,8 @@ export const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     getUsersList,
     getGroupsList,
+    deleteUser,
+    deleteGroup,
   }, dispatch),
 })
 

@@ -29,4 +29,9 @@ export default {
       },
     })
   ),
+  deleteUser: async id => (
+    fetch(`${process.env.REACT_APP_API_URL}/user/${id}`, {
+      method: 'DELETE',
+    })
+  ),
 }

@@ -29,4 +29,9 @@ export default {
       },
     })
   ),
+  deleteGroup: async id => (
+    fetch(`${process.env.REACT_APP_API_URL}/group/${id}`, {
+      method: 'DELETE',
+    })
+  ),
 }
