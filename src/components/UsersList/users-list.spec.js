@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { UsersListComp, columns } from './users-list'
+import { UsersListComp } from './users-list'
 import { LOADING, NOT_LOADED } from '../../constants/loading-status'
 
 jest.mock('antd', () => ({
@@ -40,8 +40,15 @@ describe('users-list', () => {
   })
 
   describe('table columns', () => {
+    let cols
+
+    beforeEach(() => {
+      const w = shallow(<UsersListComp {...props} />)
+      cols = w.instance().columns
+    })
+
     it('renders fullName with Link to edit user', () => {
-      const Col = columns[0].render(null, {
+      const Col = cols[0].render(null, {
         id: 'id',
         firstName: 'first name',
         lastName: 'last name',
@@ -51,14 +58,14 @@ describe('users-list', () => {
     })
 
     it('renders group name if user belongs to only 1 group', () => {
-      const Col = columns[2].render(null, {
+      const Col = cols[2].render(null, {
         groups: [{ name: 'unique group' }],
       })
       expect(Col).toEqual('unique group')
     })
 
     it('renders amount of groups if user belongs to multiple groups', () => {
-      const Col = columns[2].render(null, {
+      const Col = cols[2].render(null, {
         groups: [{ name: 'group 1', id: '1' }, { name: 'group 2', id: '2' }],
       })
       expect(Col.props.children).toEqual('2 groups')

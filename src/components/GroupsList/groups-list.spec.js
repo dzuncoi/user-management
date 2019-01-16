@@ -4,7 +4,7 @@ import {
   NOT_LOADED,
   LOADING,
 } from '../../constants/loading-status'
-import { GroupsListComp, columns } from './groups-list'
+import { GroupsListComp } from './groups-list'
 
 jest.mock('antd', () => ({
   Button: () => 'Button',
@@ -40,19 +40,26 @@ describe('groups-list', () => {
   })
 
   describe('table columns', () => {
+    let cols
+
+    beforeEach(() => {
+      const w = shallow(<GroupsListComp {...props} />)
+      cols = w.instance().columns
+    })
+
     it('renders group name with link to edit group page', () => {
-      const Col = columns[0].render('name', { id: 'id' })
+      const Col = cols[0].render('name', { id: 'id' })
       expect(Col.props.to).toEqual('group/id')
       expect(Col.props.children).toEqual('name')
     })
 
     it('renders No users if groups does not contain any users', () => {
-      const Col = columns[1].render(null, { users: [] })
+      const Col = cols[1].render(null, { users: [] })
       expect(Col).toEqual('No Users')
     })
 
     it('renders amount of users belonging to this group', () => {
-      const Col = columns[1].render(null, {
+      const Col = cols[1].render(null, {
         users: [{
           id: '1',
         }, {
