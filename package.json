@@ -44,6 +44,7 @@
     "webpack": "4.19.1",
     "webpack-dev-server": "3.1.14",
     "webpack-manifest-plugin": "2.0.4",
+    "whatwg-fetch": "^3.0.0",
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
@@ -69,7 +70,8 @@
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
-      "react-app-polyfill/jsdom"
+      "react-app-polyfill/jsdom",
+      "./config/jest/setup.js"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
@@ -144,6 +146,7 @@
     "eslint-plugin-jsx-a11y": "6.1.2",
     "eslint-plugin-react": "7.11.1",
     "faker": "^4.1.0",
+    "jest-fetch-mock": "^2.1.0",
     "json-server": "^0.14.2",
     "nodemon": "^1.18.9",
     "uuid": "^3.3.2"
