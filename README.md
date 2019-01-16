@@ -2,9 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Running App
 
-In the project directory, you can run:
+In the project directory, you need to run mock api and app using the following command:
 
 ### `yarn api`
 
@@ -30,10 +30,26 @@ Launches the test runner <br>
 Get all the users with populated groups
 
 ### POST `/user`
+```
+{
+  firstName: String,
+  lastName: String,
+  email: String,
+  groups: Array<String>,
+}
+```
 
 Create new user
 
 ### PATCH `/user/:id`
+```
+{
+  firstName: String,
+  lastName: String,
+  email: String,
+  groups: Array<String>,
+}
+```
 
 Modify existed user, may change associated group object
 
@@ -46,10 +62,20 @@ Delete existed user, may change associated group object
 Get all the groups with populated users
 
 ### POST `/group`
+```
+{
+  name: String
+}
+```
 
 Create new group
 
 ### PATCH `/group/:id`
+```
+{
+  name: String
+}
+```
 
 Modify existed group, may change associated user object
 
@@ -70,3 +96,7 @@ Build forms in React, without tears
 ### Ant Design
 
 A design system with values of Nature and Determinacy for better user experience of enterprise applications
+
+### Json-server
+
+Create mock api server
